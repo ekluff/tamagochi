@@ -38,5 +38,14 @@ class Tamagochi
     end
   end
 
+  define_method(:time_passes) do
+    until @food_level = 0 || @sleep_level = 0 || @activity_level = 0 do
+      sleep(10)
+      @food_level -=
+      @sleep_level -=
+      @activity_level -=
+    end
+  end
+
 
 end
