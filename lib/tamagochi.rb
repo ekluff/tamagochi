@@ -1,3 +1,5 @@
+require('pry')
+
 class Tamagochi
 
   define_method(:initialize) do |name = "Tacocat", food_level = 10, sleep_level = 10, activity_level = 10|
@@ -39,13 +41,35 @@ class Tamagochi
   end
 
   define_method(:time_passes) do
-    until @food_level = 0 || @sleep_level = 0 || @activity_level = 0 do
-      sleep(10)
-      @food_level -=
-      @sleep_level -=
-      @activity_level -=
+    @food_level -= 1
+    @sleep_level -= 1
+    @activity_level -= 1
+    if is_alive()
+      "Everything is good"
+    else
+      "Your tamagochi is dead."
     end
   end
+
+
+  # binding.pry
+
+  # define_method(:time_passes) do
+    # puts "initial food level ".concat(@food_level)
+    #
+    # i = 1
+    #
+    # until @food_level = 0 || @sleep_level = 0 || @activity_level = 0 do
+    #   puts i.to_s.concat(" old food level ").concat(@food_level.to_s)
+    #   @food_level -=
+    #   puts i.to_s.concat(" new food level ").concat(@food_level.to_s)
+    #   @sleep_level -=
+    #   @activity_level -=
+    #   i +=
+    #   sleep(10)
+    # end
+  #   @foo
+  # end
 
 
 end
