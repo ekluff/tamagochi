@@ -22,4 +22,9 @@ class Tamagochi
   define_method(:activity_level) do
     @activity_level
   end
+
+    define_method(:is_alive) do
+    @food_level > 0
+  end
+
 end
