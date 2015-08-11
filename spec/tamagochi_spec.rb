@@ -20,7 +20,7 @@ describe(Tamagochi) do
 
     it("is dead if the food level is 0") do
       my_pet = Tamagochi.new("lil dragon")
-      my_pet.set_food_level() #make a method that will change the food level of your tamagotchi.
+      my_pet.set_food_level(-1000) #make a method that will change the food level of your tamagotchi.
       expect(my_pet.is_alive()).to(eq(false))
     end
   end

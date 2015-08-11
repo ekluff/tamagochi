@@ -24,13 +24,19 @@ class Tamagochi
   end
 
   define_method(:is_alive) do
-    if @food_level > 0
-    && @sleep_level > 0
-    && @activity_level > 0
+    if @food_level > 0 && @sleep_level > 0 && @activity_level > 0
       true
     else
       false
     end
   end
+
+  define_method(:set_food_level) do |new_food|
+    @food_level += new_food
+    if @food_level < 0
+      @food_level = 0
+    end
+  end
+
 
 end
