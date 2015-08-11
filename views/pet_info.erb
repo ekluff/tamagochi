@@ -1,0 +1,22 @@
+<h1>Your pet!</h1>
+
+<form id="levels" action="/pet_info" method="post">
+
+...is named <%= @name %><%= @new_name %><br>
+<label for="new_name">Change your pet's name.</label>
+<input type="text" name="new_name"><br><br>
+
+...has <%= @food_level %><%= @new_food %> foods<br>
+<label for="new_food">Feed your pet.</label>
+<input type="text" name="new_food"><br><br>
+
+...has <%= @sleep_level %><%= @new_sleep %> sleeps<br>
+<label for="new_sleep">Sleep your pet.</label>
+<input type="text" name="new_sleep"><br><br>
+
+...has <%= @activity_level %><%= @new_activity %> funs<br>
+<label for="new_activity">Fun your pet.</label>
+<input type="text" name="new_activity"><br><br>
+
+<button name="button" type="submit">Make changes!</button>
+</form>

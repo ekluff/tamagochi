@@ -1,6 +1,7 @@
 require('pry')
 
 class Tamagochi
+  @@all_tamagochis = []
 
   define_method(:initialize) do |name = "Tacocat", food_level = 10, sleep_level = 10, activity_level = 10|
     @name = name
@@ -25,6 +26,18 @@ class Tamagochi
     @activity_level
   end
 
+  define_singleton_method(:all) do
+    @@all_tamagochis
+  end
+
+  define_method(:save) do
+    @@all_tamagochis.push(self)
+  end
+
+  define_singleton_method(:clear) do
+    @@all_tamagochis = []
+  end
+
   define_method(:is_alive) do
     if @food_level > 0 && @sleep_level > 0 && @activity_level > 0
       true
@@ -35,6 +48,7 @@ class Tamagochi
 
   define_method(:set_food_level) do |new_food|
     @food_level += new_food
+    # binding.pry
     if @food_level < 0
       @food_level = 0
     end
@@ -44,11 +58,11 @@ class Tamagochi
     @food_level -= 1
     @sleep_level -= 1
     @activity_level -= 1
-    if is_alive()
-      "Everything is good"
-    else
-      "Your tamagochi is dead."
-    end
+    # if is_alive()
+    #   "Everything is good"
+    # else
+    #   "Your tamagochi is dead."
+    # end
   end
 
 

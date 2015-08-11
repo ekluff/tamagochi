@@ -2,6 +2,32 @@ require('rspec')
 require('tamagochi')
 
 describe(Tamagochi) do
+  before() do
+    Tamagochi.clear()
+  end
+
+  describe('.all') do
+    it('is empty at first') do
+      expect(Tamagochi.all()).to(eq([]))
+    end
+  end
+
+  describe('#save') do
+    it('adds a task to the array of saved tamagochi') do
+      test_pet = Tamagochi.new("Tacocat")
+      test_pet.save()
+      expect(Tamagochi.all()).to(eq([test_pet]))
+    end
+  end
+
+  describe('.clear') do
+    it('empties out all of the saved tamagochis') do
+      Tamagochi.new("Tedward").save()
+      Tamagochi.clear()
+      expect(Tamagochi.all()).to(eq([]))
+    end
+  end
+
   describe("#initialize") do
     it("sets the name and life levels of a new Tamagotchi") do
       my_pet = Tamagochi.new("lil romeo")
